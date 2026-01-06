@@ -33,7 +33,7 @@ def process_markdown_files(directory: str):
             print(f"Finished processing {filename}")
 
 # Set the directory where your markdown files are located
-directory = '/home/architect/Projects/LyteWord/chspurgeon-sermons/volume-5'  # Change this to the directory you want to process
+directory = '/home/username/project'  # Change this to the directory you want to process
 
 process_markdown_files(directory)
 
