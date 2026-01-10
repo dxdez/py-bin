@@ -221,7 +221,7 @@ def main():
 
     global_footnote_counter = [1]
 
-    sfm_files = [f for f in os.listdir(directory_path) if f.endswith('.SFM')]
+    sfm_files = [f for f in os.listdir(directory_path) if f.endswith('.usfm')]
     
     if not sfm_files:
         print(f"No .sfm files found in '{directory_path}'.")
