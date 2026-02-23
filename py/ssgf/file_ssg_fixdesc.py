@@ -21,6 +21,12 @@ def clean_description(text):
     return text.strip()
 
 
+def remove_markdown_references(text: str) -> str:
+    cleaned = re.sub(r'\[\^[^\]]+\]', '', text)
+    cleaned = re.sub(r'\s{2,}', ' ', cleaned).strip()
+    
+    return cleaned
+
 def convert_description_to_block(front_matter):
     """
     Convert description field to YAML block style (>) if it exists.
@@ -36,8 +42,8 @@ def convert_description_to_block(front_matter):
         match = re.match(r'^description:\s*(.+)', line)
         if match:
             value = match.group(1)
-
-            cleaned = clean_description(value)
+            truncated = remove_markdown_references(value)
+            cleaned = clean_description(truncated)
 
             # Replace with block style
             new_lines.append("description: >")
